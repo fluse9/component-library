@@ -1,21 +1,27 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
-import Button from './index';
+import { render, screen } from '@testing-library/react';
+import Button from '.';
 
-test('renders button with correct label', () => {
-    const { getByText } = render(
-        <Button label="Test Button" onClick={() => {}} />
-    );
-    const buttonElement = getByText('Test Button');
-    expect(buttonElement).toBeInTheDocument();
-});
+describe('Button', () => {
+    test('renders with default props', () => {
+        render(<Button>Hello</Button>);
+        const buttonElement = screen.getByText('Hello');
+        expect(buttonElement).toBeInTheDocument();
+        expect(buttonElement.tagName).toBe('BUTTON');
+        expect(buttonElement).toHaveStyle('background-color: #000000');
+        expect(buttonElement).toHaveStyle('color: #fff');
+    });
 
-test('calls onClick when button is clicked', () => {
-    const onClickMock = jest.fn();
-    const { getByText } = render(
-        <Button label="Test Button" onClick={onClickMock} />
-    );
-    const buttonElement = getByText('Test Button');
-    fireEvent.click(buttonElement);
-    expect(onClickMock).toHaveBeenCalled();
+    test('renders with custom props', () => {
+        render(
+            <Button backgroundColor="#4665AE" color="#fff" className="rounded">
+                Click Me
+            </Button>
+        );
+        const buttonElement = screen.getByText('Click Me');
+        expect(buttonElement).toBeInTheDocument();
+        expect(buttonElement).toHaveClass('rounded');
+        expect(buttonElement).toHaveStyle('background-color: #4665AE');
+        expect(buttonElement).toHaveStyle('color: #fff');
+    });
 });
