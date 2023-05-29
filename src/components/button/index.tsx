@@ -27,7 +27,8 @@ const StyledButton = styled.button<StyledButtonProps>`
     color: ${({ color }) => color};
     cursor: pointer;
     padding: 0.5rem 1rem;
-    transition: all 0.25s ease-in-out'
+    transition: all 0.25s ease-in-out;
+    ${({ innerStyles }) => innerStyles};
 
     &.rounded {
         border-radius: 1rem;
@@ -37,8 +38,6 @@ const StyledButton = styled.button<StyledButtonProps>`
         background-color: ${({ color }) => color};
         color: ${({ backgroundColor }) => backgroundColor};
     }
-
-    ${({ innerStyles }) => innerStyles};
 `;
 
 const Button: FC<ButtonProps> = ({
