@@ -10,7 +10,10 @@ import setHtmlTagAttributes from '../../utilities/setHtmlTagAttributes';
 type ButtonAttributes = typeof BUTTON_ATTRIBUTES;
 
 interface ButtonProps {
+    backgroundColor?: string;
     children?: ReactNode;
+    className?: string;
+    color?: string;
     innerAttributes?: Partial<ButtonAttributes>;
     innerStyles?: CSSObject | FlattenSimpleInterpolation;
 }
@@ -18,19 +21,32 @@ interface ButtonProps {
 type StyledButtonProps = StyledComponentPropsWithRef<'button'> & ButtonProps;
 
 const StyledButton = styled.button<StyledButtonProps>`
-    background-color: #f0f0f0;
-    color: #333;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
+    background-color: ${({ backgroundColor }) => backgroundColor};
+    border: 0.125rem solid ${({ backgroundColor }) => backgroundColor};
+    border-radius: 0.25rem;
+    color: ${({ color }) => color};
     cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: all 0.25s ease-in-out;
     ${({ innerStyles }) => innerStyles};
+
+    &.rounded {
+        border-radius: 1rem;
+    }
+
+    &:hover {
+        background-color: ${({ color }) => color};
+        color: ${({ backgroundColor }) => backgroundColor};
+    }
 `;
 
 const Button: FC<ButtonProps> = ({
-    children,
-    innerAttributes,
-    innerStyles,
+    backgroundColor = '#000000',
+    children = null,
+    className = '',
+    color = '#fff',
+    innerAttributes = {},
+    innerStyles = {},
 }) => {
     const [buttonAttributes, setButtonAttributes] = useState({});
 
@@ -48,6 +64,9 @@ const Button: FC<ButtonProps> = ({
 
     return (
         <StyledButton
+            backgroundColor={backgroundColor}
+            color={color}
+            className={className}
             innerAttributes={buttonAttributes}
             innerStyles={innerStyles}
         >
