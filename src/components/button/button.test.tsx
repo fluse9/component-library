@@ -24,4 +24,32 @@ describe('Button', () => {
         expect(buttonElement).toHaveStyle('background-color: #4665AE');
         expect(buttonElement).toHaveStyle('color: #fff');
     });
+
+    test('renders with innerStyles', () => {
+        render(
+            <Button
+                innerStyles={{
+                    fontWeight: 'bold',
+                    textDecoration: 'underline',
+                }}
+            >
+                Styled Button
+            </Button>
+        );
+        const buttonElement = screen.getByText('Styled Button');
+        expect(buttonElement).toBeInTheDocument();
+        expect(buttonElement).toHaveStyle('font-weight: bold');
+        expect(buttonElement).toHaveStyle('text-decoration: underline');
+    });
+
+    test('renders with innerAttributes', () => {
+        render(
+            <Button innerAttributes={{ disabled: true }}>
+                Disabled Button
+            </Button>
+        );
+        const buttonElement = screen.getByText('Disabled Button');
+        expect(buttonElement).toBeInTheDocument();
+        expect(buttonElement).toBeDisabled();
+    });
 });

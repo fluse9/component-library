@@ -32,6 +32,51 @@ Primary.args = {
         onClick: () => console.log('test'),
     },
     innerStyles: {
-        boxShadow: '0px 2px 4px 1px #C8C8C9',
+        boxShadow: '0.125rem #C8C8C9',
+    },
+};
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+    backgroundColor: '#F8F8F8',
+    children: 'Secondary Button',
+    color: '#333',
+    innerStyles: {
+        border: '0.125rem solid #333',
+    },
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    children: 'Disabled Button',
+    innerAttributes: {
+        disabled: true,
+    },
+};
+
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+    children: (
+        <div>
+            <span style={{ marginRight: '0.5rem' }}>🚀</span>
+            Button with Icon
+        </div>
+    ),
+    innerStyles: {
+        display: 'flex',
+        alignItems: 'center',
+    },
+};
+
+export const CustomStyles = Template.bind({});
+CustomStyles.args = {
+    children: 'Custom Styles',
+    innerStyles: {
+        backgroundColor: '#FF9800',
+        color: '#fff',
+        fontWeight: 'bold',
+        borderRadius: '0.5rem',
+        padding: '0.75rem 1rem',
+        boxShadow: '0.125rem #C8C8C9',
     },
 };
