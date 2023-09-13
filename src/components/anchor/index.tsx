@@ -25,6 +25,14 @@ const StyledAnchor = styled.a<StyledAnchorProps>`
     ${({ innerStyles }) => innerStyles};
 `;
 
+/**
+ * Anchor component is a functional component that renders a styled anchor.
+ * @param children - Child elements to be rendered inside the anchor.
+ * @param className - CSS class name for additional styling.
+ * @param color - Text color for the anchor.
+ * @param innerAttributes - Inner HTML attributes for the anchor.
+ * @param innerStyles - Inner CSS styles for the anchor.
+ */
 const Anchor: FC<AnchorProps> = ({
     children = null,
     className = '',
