@@ -4,24 +4,24 @@ import styled, {
     FlattenSimpleInterpolation,
     StyledComponentPropsWithRef,
 } from 'styled-components';
-import buttonAttributes from './buttonAttributes';
-import setHtmlTagAttributes from '../../utilities/setHtmlTagAttributes';
-
-type ButtonAttributes = typeof buttonAttributes;
 
 interface ButtonProps {
     backgroundColor?: string;
     children?: ReactNode;
     className?: string;
     color?: string;
-    innerAttributes?: Partial<ButtonAttributes>;
+    innerAttributes?: StyledComponentPropsWithRef<'button'>;
     innerStyles?: CSSObject | FlattenSimpleInterpolation;
 }
 
 type StyledButtonProps = StyledComponentPropsWithRef<'button'> & ButtonProps;
 
-const StyledButton = styled.button<StyledButtonProps>`
-    background-color: ${({ backgroundColor }) => backgroundColor};
+const StyledButton = styled.button.attrs<StyledButtonProps>(
+    ({ innerAttributes }): StyledComponentPropsWithRef<'button'> => ({
+        ...innerAttributes,
+    })
+)<StyledButtonProps>`
+    background: ${({ backgroundColor }) => backgroundColor};
     border: 0.125rem solid ${({ backgroundColor }) => backgroundColor};
     border-radius: 0.25rem;
     color: ${({ color }) => color};
@@ -35,7 +35,7 @@ const StyledButton = styled.button<StyledButtonProps>`
     }
 
     &:hover {
-        background-color: ${({ color }) => color};
+        background: ${({ color }) => color};
         color: ${({ backgroundColor }) => backgroundColor};
     }
 `;
@@ -54,26 +54,19 @@ const Button: FC<ButtonProps> = ({
     backgroundColor = '#000000',
     children = null,
     className = '',
-    color = '#fff',
+    color = '#FFFFFF',
     innerAttributes = {},
     innerStyles = {},
-}) => {
-    const derivedButtonAttributes = setHtmlTagAttributes(
-        buttonAttributes,
-        innerAttributes
-    );
-
-    return (
-        <StyledButton
-            backgroundColor={backgroundColor}
-            color={color}
-            className={className}
-            innerAttributes={derivedButtonAttributes}
-            innerStyles={innerStyles}
-        >
-            {children}
-        </StyledButton>
-    );
-};
+}) => (
+    <StyledButton
+        backgroundColor={backgroundColor}
+        color={color}
+        className={className}
+        innerAttributes={innerAttributes}
+        innerStyles={innerStyles}
+    >
+        {children}
+    </StyledButton>
+);
 
 export default Button;

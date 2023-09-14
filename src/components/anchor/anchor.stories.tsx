@@ -1,17 +1,18 @@
 import React, { ReactNode } from 'react';
 import { StoryFn, Meta } from '@storybook/react';
-import { CSSObject, FlattenSimpleInterpolation } from 'styled-components';
-import anchorAttributes from './anchorAttributes';
+import {
+    CSSObject,
+    FlattenSimpleInterpolation,
+    StyledComponentPropsWithRef,
+} from 'styled-components';
 import Anchor from '.';
-
-type AnchorAttributes = typeof anchorAttributes;
 
 type AnchorProps = {
     backgroundColor?: string;
     children?: ReactNode;
     className?: string;
     color?: string;
-    innerAttributes?: Partial<AnchorAttributes>;
+    innerAttributes?: StyledComponentPropsWithRef<'a'>;
     innerStyles?: CSSObject | FlattenSimpleInterpolation;
 };
 
@@ -39,14 +40,6 @@ export const WithCustomColor = Template.bind({});
 WithCustomColor.args = {
     children: 'Click me',
     color: 'red',
-};
-
-export const WithDisabledAttribute = Template.bind({});
-WithDisabledAttribute.args = {
-    children: 'Click me',
-    innerAttributes: {
-        disabled: true,
-    },
 };
 
 export const WithOnClickHandler = Template.bind({});

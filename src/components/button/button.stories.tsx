@@ -1,17 +1,18 @@
 import React, { ReactNode } from 'react';
 import { StoryFn, Meta } from '@storybook/react';
-import { CSSObject, FlattenSimpleInterpolation } from 'styled-components';
-import buttonAttributes from './buttonAttributes';
+import {
+    CSSObject,
+    FlattenSimpleInterpolation,
+    StyledComponentPropsWithRef,
+} from 'styled-components';
 import Button from '.';
-
-type ButtonAttributes = typeof buttonAttributes;
 
 type ButtonProps = {
     backgroundColor?: string;
     children?: ReactNode;
     className?: string;
     color?: string;
-    innerAttributes?: Partial<ButtonAttributes>;
+    innerAttributes?: StyledComponentPropsWithRef<'button'>;
     innerStyles?: CSSObject | FlattenSimpleInterpolation;
 };
 
@@ -27,7 +28,7 @@ Primary.args = {
     backgroundColor: '#4665AE',
     children: 'Primary Button',
     className: 'rounded',
-    color: '#fff',
+    color: '#FFFFFF',
     innerAttributes: {
         onClick: () => console.log('test'),
     },
@@ -73,7 +74,7 @@ CustomStyles.args = {
     children: 'Custom Styles',
     innerStyles: {
         backgroundColor: '#FF9800',
-        color: '#fff',
+        color: '#FFFFFF',
         fontWeight: 'bold',
         borderRadius: '0.5rem',
         padding: '0.75rem 1rem',

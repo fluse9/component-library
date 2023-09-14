@@ -4,22 +4,21 @@ import styled, {
     FlattenSimpleInterpolation,
     StyledComponentPropsWithRef,
 } from 'styled-components';
-import anchorAttributes from './anchorAttributes';
-import setHtmlTagAttributes from '../../utilities/setHtmlTagAttributes';
-
-type AnchorAttributes = typeof anchorAttributes;
-
 interface AnchorProps {
     children?: ReactNode;
     className?: string;
     color?: string;
-    innerAttributes?: Partial<AnchorAttributes>;
+    innerAttributes?: StyledComponentPropsWithRef<'a'>;
     innerStyles?: CSSObject | FlattenSimpleInterpolation;
 }
 
 type StyledAnchorProps = StyledComponentPropsWithRef<'a'> & AnchorProps;
 
-const StyledAnchor = styled.a<StyledAnchorProps>`
+const StyledAnchor = styled.a.attrs<StyledAnchorProps>(
+    ({ innerAttributes }): StyledComponentPropsWithRef<'a'> => ({
+        ...innerAttributes,
+    })
+)<StyledAnchorProps>`
     color: ${({ color }) => color};
     cursor: pointer;
     ${({ innerStyles }) => innerStyles};
@@ -39,22 +38,15 @@ const Anchor: FC<AnchorProps> = ({
     color = '#4665AE',
     innerAttributes = {},
     innerStyles = {},
-}) => {
-    const derivedAnchorAttributes = setHtmlTagAttributes(
-        anchorAttributes,
-        innerAttributes
-    );
-
-    return (
-        <StyledAnchor
-            color={color}
-            className={className}
-            innerAttributes={derivedAnchorAttributes}
-            innerStyles={innerStyles}
-        >
-            {children}
-        </StyledAnchor>
-    );
-};
+}) => (
+    <StyledAnchor
+        color={color}
+        className={className}
+        innerAttributes={innerAttributes}
+        innerStyles={innerStyles}
+    >
+        {children}
+    </StyledAnchor>
+);
 
 export default Anchor;

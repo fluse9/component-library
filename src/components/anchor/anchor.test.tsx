@@ -20,7 +20,9 @@ describe('Anchor', () => {
         const anchorElement = screen.getByText('Click Me');
         expect(anchorElement).toBeInTheDocument();
         expect(anchorElement).toHaveClass('custom-anchor');
-        expect(anchorElement).toHaveStyle('color: #FF0000');
+        expect(anchorElement).toHaveStyle({
+            color: '#FF0000',
+        });
     });
 
     test('renders with innerStyles', () => {
@@ -36,8 +38,12 @@ describe('Anchor', () => {
         );
         const anchorElement = screen.getByText('Styled Anchor');
         expect(anchorElement).toBeInTheDocument();
-        expect(anchorElement).toHaveStyle('font-weight: bold');
-        expect(anchorElement).toHaveStyle('text-decoration: underline');
+        expect(anchorElement).toHaveStyle({
+            fontWeight: 'bold',
+        });
+        expect(anchorElement).toHaveStyle({
+            textDecoration: 'underline',
+        });
     });
 
     test('renders with innerAttributes', () => {

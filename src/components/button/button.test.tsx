@@ -1,37 +1,93 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
+import renderer from 'react-test-renderer';
+import 'jest-styled-components';
 import Button from '.';
 
 describe('Button', () => {
-    test('renders with default props', () => {
+    test('renders with default props, testing it in the DOM', () => {
         render(<Button>Hello</Button>);
         const buttonElement = screen.getByText('Hello');
-        console.log(window.getComputedStyle(buttonElement));
         expect(buttonElement).toBeInTheDocument();
         expect(buttonElement.tagName).toBe('BUTTON');
-        expect(buttonElement).toHaveStyle({
-            backgroundColor: '#000000',
-        });
-        expect(buttonElement).toHaveStyle({
-            color: '#fff',
-        });
     });
 
-    test('renders with custom props', () => {
+    test('renders with default props, testing its styles', () => {
+        const buttonElement = renderer.create(<Button>Hello</Button>).toJSON();
+        expect(buttonElement).toHaveStyleRule('background', '#000000');
+        expect(buttonElement).toHaveStyleRule('color', '#FFFFFF');
+    });
+
+    test('renders with custom props, testing it in the DOM', () => {
         render(
-            <Button backgroundColor="#4665AE" color="#fff" className="rounded">
+            <Button
+                backgroundColor="#4665AE"
+                color="#FFFFFF"
+                className="rounded"
+            >
                 Click Me
             </Button>
         );
         const buttonElement = screen.getByText('Click Me');
         expect(buttonElement).toBeInTheDocument();
         expect(buttonElement).toHaveClass('rounded');
-        expect(buttonElement).toHaveStyle({
-            backgroundColor: '#4665AE',
+    });
+
+    test('renders with custom props, testing its styles', () => {
+        const buttonElement = renderer
+            .create(
+                <Button
+                    backgroundColor="#4665AE"
+                    color="#FFFFFF"
+                    className="rounded"
+                >
+                    Click Me
+                </Button>
+            )
+            .toJSON();
+        expect(buttonElement).toHaveStyleRule('background', '#4665AE');
+        expect(buttonElement).toHaveStyleRule('color', '#FFFFFF');
+    });
+
+    test('renders with hover effect', () => {
+        const buttonElement = renderer
+            .create(
+                <Button
+                    backgroundColor="#4665AE"
+                    color="#FFFFFF"
+                    className="rounded"
+                >
+                    Click Me
+                </Button>
+            )
+            .toJSON();
+        expect(buttonElement).toHaveStyleRule('background', '#4665AE');
+        expect(buttonElement).toHaveStyleRule('color', '#FFFFFF');
+        expect(buttonElement).toHaveStyleRule('background', '#FFFFFF', {
+            modifier: ':hover',
         });
-        expect(buttonElement).toHaveStyle({
-            color: '#fff',
+        expect(buttonElement).toHaveStyleRule('color', '#4665AE', {
+            modifier: ':hover',
         });
+    });
+
+    test('renders with innerStyles', () => {
+        const clickHandler = jest.fn();
+
+        render(
+            <Button
+                innerAttributes={{
+                    onClick: clickHandler,
+                }}
+            >
+                Click Me
+            </Button>
+        );
+        const buttonElement = screen.getByText('Click Me');
+        expect(buttonElement).toBeInTheDocument();
+
+        fireEvent.click(buttonElement);
+        expect(clickHandler).toBeCalledTimes(1);
     });
 
     test('renders with innerStyles', () => {
@@ -47,8 +103,10 @@ describe('Button', () => {
         );
         const buttonElement = screen.getByText('Styled Button');
         expect(buttonElement).toBeInTheDocument();
-        expect(buttonElement).toHaveStyle('font-weight: bold');
-        expect(buttonElement).toHaveStyle('text-decoration: underline');
+        expect(buttonElement).toHaveStyle({
+            fontWeight: 'bold',
+            textDecoration: 'underline',
+        });
     });
 
     test('renders with innerAttributes', () => {
