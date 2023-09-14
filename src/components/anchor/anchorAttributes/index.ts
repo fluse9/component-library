@@ -25,7 +25,7 @@ interface AnchorAttributes {
     onBlur?: () => void;
 }
 
-const ANCHOR_ATTRIBUTES: Record<keyof AnchorAttributes, any> = {
+const anchorAttributes: Record<keyof AnchorAttributes, any> = {
     disabled: PropTypes.bool,
     href: PropTypes.string,
     target: PropTypes.string,
@@ -49,4 +49,4 @@ const ANCHOR_ATTRIBUTES: Record<keyof AnchorAttributes, any> = {
     onBlur: PropTypes.func,
 };
 
-export default ANCHOR_ATTRIBUTES;
+export default anchorAttributes;

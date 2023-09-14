@@ -30,7 +30,7 @@ interface ButtonAttributes {
     onBlur?: () => void;
 }
 
-const BUTTON_ATTRIBUTES: Record<keyof ButtonAttributes, any> = {
+const buttonAttributes: Record<keyof ButtonAttributes, any> = {
     disabled: PropTypes.bool,
     type: PropTypes.oneOf(['button', 'submit', 'reset']),
     autoFocus: PropTypes.bool,
@@ -59,4 +59,4 @@ const BUTTON_ATTRIBUTES: Record<keyof ButtonAttributes, any> = {
     onBlur: PropTypes.func,
 };
 
-export default BUTTON_ATTRIBUTES;
+export default buttonAttributes;

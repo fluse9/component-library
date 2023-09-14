@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react';
 import { StoryFn, Meta } from '@storybook/react';
 import { CSSObject, FlattenSimpleInterpolation } from 'styled-components';
-import BUTTON_ATTRIBUTES from './buttonAttributes';
+import buttonAttributes from './buttonAttributes';
 import Button from '.';
 
-type ButtonAttributes = typeof BUTTON_ATTRIBUTES;
+type ButtonAttributes = typeof buttonAttributes;
 
 type ButtonProps = {
     backgroundColor?: string;

@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react';
 import { StoryFn, Meta } from '@storybook/react';
 import { CSSObject, FlattenSimpleInterpolation } from 'styled-components';
-import ANCHOR_ATTRIBUTES from './anchorAttributes';
+import anchorAttributes from './anchorAttributes';
 import Anchor from '.';
 
-type AnchorAttributes = typeof ANCHOR_ATTRIBUTES;
+type AnchorAttributes = typeof anchorAttributes;
 
 type AnchorProps = {
     backgroundColor?: string;

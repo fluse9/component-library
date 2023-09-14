@@ -1,13 +1,13 @@
-import React, { FC, ReactNode, useEffect, useState } from 'react';
+import React, { FC, ReactNode } from 'react';
 import styled, {
     CSSObject,
     FlattenSimpleInterpolation,
     StyledComponentPropsWithRef,
 } from 'styled-components';
-import BUTTON_ATTRIBUTES from './buttonAttributes';
+import buttonAttributes from './buttonAttributes';
 import setHtmlTagAttributes from '../../utilities/setHtmlTagAttributes';
 
-type ButtonAttributes = typeof BUTTON_ATTRIBUTES;
+type ButtonAttributes = typeof buttonAttributes;
 
 interface ButtonProps {
     backgroundColor?: string;
@@ -58,26 +58,17 @@ const Button: FC<ButtonProps> = ({
     innerAttributes = {},
     innerStyles = {},
 }) => {
-    const [buttonAttributes, setButtonAttributes] = useState({});
-
-    useEffect(() => {
-        const handleButtonAttributes = () => {
-            const reducedButtonAttributes = setHtmlTagAttributes(
-                BUTTON_ATTRIBUTES,
-                innerAttributes
-            );
-            setButtonAttributes(reducedButtonAttributes);
-        };
-
-        handleButtonAttributes();
-    }, [innerAttributes]);
+    const derivedButtonAttributes = setHtmlTagAttributes(
+        buttonAttributes,
+        innerAttributes
+    );
 
     return (
         <StyledButton
             backgroundColor={backgroundColor}
             color={color}
             className={className}
-            innerAttributes={buttonAttributes}
+            innerAttributes={derivedButtonAttributes}
             innerStyles={innerStyles}
         >
             {children}

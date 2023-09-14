@@ -1,13 +1,13 @@
-import React, { FC, ReactNode, useEffect, useState } from 'react';
+import React, { FC, ReactNode } from 'react';
 import styled, {
     CSSObject,
     FlattenSimpleInterpolation,
     StyledComponentPropsWithRef,
 } from 'styled-components';
-import ANCHOR_ATTRIBUTES from './anchorAttributes';
+import anchorAttributes from './anchorAttributes';
 import setHtmlTagAttributes from '../../utilities/setHtmlTagAttributes';
 
-type AnchorAttributes = typeof ANCHOR_ATTRIBUTES;
+type AnchorAttributes = typeof anchorAttributes;
 
 interface AnchorProps {
     children?: ReactNode;
@@ -40,25 +40,16 @@ const Anchor: FC<AnchorProps> = ({
     innerAttributes = {},
     innerStyles = {},
 }) => {
-    const [anchorAttributes, setAnchorAttributes] = useState({});
-
-    useEffect(() => {
-        const handleAnchorAttributes = () => {
-            const reducedAnchorAttributes = setHtmlTagAttributes(
-                ANCHOR_ATTRIBUTES,
-                innerAttributes
-            );
-            setAnchorAttributes(reducedAnchorAttributes);
-        };
-
-        handleAnchorAttributes();
-    }, [innerAttributes]);
+    const derivedAnchorAttributes = setHtmlTagAttributes(
+        anchorAttributes,
+        innerAttributes
+    );
 
     return (
         <StyledAnchor
             color={color}
             className={className}
-            innerAttributes={anchorAttributes}
+            innerAttributes={derivedAnchorAttributes}
             innerStyles={innerStyles}
         >
             {children}

@@ -6,10 +6,15 @@ describe('Button', () => {
     test('renders with default props', () => {
         render(<Button>Hello</Button>);
         const buttonElement = screen.getByText('Hello');
+        console.log(window.getComputedStyle(buttonElement));
         expect(buttonElement).toBeInTheDocument();
         expect(buttonElement.tagName).toBe('BUTTON');
-        expect(buttonElement).toHaveStyle('background-color: #000000');
-        expect(buttonElement).toHaveStyle('color: #fff');
+        expect(buttonElement).toHaveStyle({
+            backgroundColor: '#000000',
+        });
+        expect(buttonElement).toHaveStyle({
+            color: '#fff',
+        });
     });
 
     test('renders with custom props', () => {
@@ -21,8 +26,12 @@ describe('Button', () => {
         const buttonElement = screen.getByText('Click Me');
         expect(buttonElement).toBeInTheDocument();
         expect(buttonElement).toHaveClass('rounded');
-        expect(buttonElement).toHaveStyle('background-color: #4665AE');
-        expect(buttonElement).toHaveStyle('color: #fff');
+        expect(buttonElement).toHaveStyle({
+            backgroundColor: '#4665AE',
+        });
+        expect(buttonElement).toHaveStyle({
+            color: '#fff',
+        });
     });
 
     test('renders with innerStyles', () => {
