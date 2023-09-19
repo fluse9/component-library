@@ -5,53 +5,40 @@ import {
     FlattenSimpleInterpolation,
     StyledComponentPropsWithRef,
 } from 'styled-components';
-import Button from '.';
+import Card from '.';
 
-type ButtonProps = {
+type CardProps = {
     background?: string;
     children?: ReactNode;
     className?: string;
-    color?: string;
-    innerAttributes?: StyledComponentPropsWithRef<'button'>;
+    innerAttributes?: StyledComponentPropsWithRef<'div'>;
     innerStyles?: CSSObject | FlattenSimpleInterpolation;
 };
 
 export default {
-    title: 'components/button',
-    component: Button,
+    title: 'components/card',
+    component: Card,
 } as Meta;
 
-const Template: StoryFn<ButtonProps> = (args) => <Button {...args} />;
+const Template: StoryFn<CardProps> = (args) => <Card {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
-    background: '#4665AE',
-    children: 'Primary Button',
+export const Rounded = Template.bind({});
+Rounded.args = {
+    background: '#FFFFFF',
+    children: 'Rounded Card',
     className: 'rounded',
-    color: '#FFFFFF',
     innerAttributes: {
         onClick: () => console.log('test'),
     },
-    innerStyles: {
-        boxShadow: '0.125rem #C8C8C9',
-    },
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-    background: '#F8F8F8',
-    children: 'Secondary Button',
-    color: '#333',
-    innerStyles: {
-        border: '0.125rem solid #333',
-    },
-};
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-    children: 'Disabled Button',
+export const Raised = Template.bind({});
+Raised.args = {
+    background: '#FFFFFF',
+    children: 'Raised Card',
+    className: 'raised',
     innerAttributes: {
-        disabled: true,
+        onClick: () => console.log('test'),
     },
 };
 

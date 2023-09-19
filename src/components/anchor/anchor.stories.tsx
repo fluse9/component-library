@@ -8,7 +8,7 @@ import {
 import Anchor from '.';
 
 type AnchorProps = {
-    backgroundColor?: string;
+    background?: string;
     children?: ReactNode;
     className?: string;
     color?: string;

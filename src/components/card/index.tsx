@@ -5,68 +5,62 @@ import styled, {
     StyledComponentPropsWithRef,
 } from 'styled-components';
 
-interface ButtonProps {
+interface CardProps {
     background?: string;
     children?: ReactNode;
     className?: string;
-    color?: string;
-    innerAttributes?: StyledComponentPropsWithRef<'button'>;
+    innerAttributes?: StyledComponentPropsWithRef<'div'>;
     innerStyles?: CSSObject | FlattenSimpleInterpolation;
 }
 
-type StyledButtonProps = StyledComponentPropsWithRef<'button'> & ButtonProps;
+type StyledCardProps = StyledComponentPropsWithRef<'div'> & CardProps;
 
-const StyledButton = styled.button.attrs<StyledButtonProps>(
-    ({ innerAttributes }): StyledComponentPropsWithRef<'button'> => ({
+const StyledCard = styled.div.attrs<StyledCardProps>(
+    ({ innerAttributes }): StyledComponentPropsWithRef<'div'> => ({
         ...innerAttributes,
     })
-)<StyledButtonProps>`
+)<StyledCardProps>`
     background: ${({ background }) => background};
     border: 0.125rem solid ${({ background }) => background};
     border-radius: 0.25rem;
-    color: ${({ color }) => color};
     cursor: pointer;
     padding: 0.5rem 1rem;
-    transition: all 0.25s ease-in-out;
     ${({ innerStyles }) => innerStyles};
 
     &.rounded {
         border-radius: 1rem;
     }
 
-    &:hover {
-        background: ${({ color }) => color};
-        color: ${({ background }) => background};
+    &.raised {
+        box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.1),
+            -6px -6px 12px rgba(255, 255, 255, 0.8);
     }
 `;
 
 /**
- * Define the Button component, a functional component that renders a styled button.
+ * Define the Card component, a functional component that renders a styled card.
  * It accepts various props for customization and uses a state variable for inner attributes.
- * @param background - Background color for the button.
- * @param children - Child elements to be rendered inside the button.
+ * @param background - Background color for the card.
+ * @param children - Child elements to be rendered inside the card.
  * @param className - CSS class name for additional styling.
- * @param color - Text color for the button.
- * @param innerAttributes - Inner HTML attributes for the button.
- * @param innerStyles - Inner CSS styles for the button.
+ * @param innerAttributes - Inner HTML attributes for the card.
+ * @param innerStyles - Inner CSS styles for the card.
  */
-const Button: FC<ButtonProps> = ({
+const Card: FC<CardProps> = ({
     background = '#000000',
     children = null,
     className = '',
-    color = '#FFFFFF',
     innerAttributes = {},
     innerStyles = {},
 }) => (
-    <StyledButton
+    <StyledCard
         background={background}
-        color={color}
         className={className}
         innerAttributes={innerAttributes}
         innerStyles={innerStyles}
     >
         {children}
-    </StyledButton>
+    </StyledCard>
 );
 
-export default Button;
+export default Card;

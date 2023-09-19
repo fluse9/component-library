@@ -20,11 +20,7 @@ describe('Button', () => {
 
     test('renders with custom props, testing it in the DOM', () => {
         render(
-            <Button
-                backgroundColor="#4665AE"
-                color="#FFFFFF"
-                className="rounded"
-            >
+            <Button background="#4665AE" color="#FFFFFF" className="rounded">
                 Click Me
             </Button>
         );
@@ -37,7 +33,7 @@ describe('Button', () => {
         const buttonElement = renderer
             .create(
                 <Button
-                    backgroundColor="#4665AE"
+                    background="#4665AE"
                     color="#FFFFFF"
                     className="rounded"
                 >
@@ -53,7 +49,7 @@ describe('Button', () => {
         const buttonElement = renderer
             .create(
                 <Button
-                    backgroundColor="#4665AE"
+                    background="#4665AE"
                     color="#FFFFFF"
                     className="rounded"
                 >
