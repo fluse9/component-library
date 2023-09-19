@@ -42,6 +42,16 @@ Raised.args = {
     },
 };
 
+export const RaisedAndRounded = Template.bind({});
+RaisedAndRounded.args = {
+    background: '#FFFFFF',
+    children: 'Raised and Rounded Card',
+    className: 'raised rounded',
+    innerAttributes: {
+        onClick: () => console.log('test'),
+    },
+};
+
 export const CustomStyles = Template.bind({});
 CustomStyles.args = {
     children: 'Custom Styles',
