@@ -108,7 +108,7 @@
         "testEnvironment": "jsdom",
         "testMatch": [
             "**/*.test.tsx",
-            "**/*.spec.tsx"
+            "**/*.test.ts"
         ]
     }
 }
