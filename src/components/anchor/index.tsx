@@ -1,21 +1,10 @@
-import React, { FC, ReactNode } from 'react';
-import styled, {
-    CSSObject,
-    FlattenSimpleInterpolation,
-    StyledComponentPropsWithRef,
-} from 'styled-components';
-import { DataTestId } from '../../types';
-
-type StyledAnchorAttributes = StyledComponentPropsWithRef<'a'> & DataTestId;
-
-interface AnchorProps {
-    color?: string;
-    innerAttributes?: StyledAnchorAttributes;
-    innerStyles?: CSSObject | FlattenSimpleInterpolation;
-    children?: ReactNode;
-}
-
-type StyledAnchorProps = StyledComponentPropsWithRef<'a'> & AnchorProps;
+import React, { FC } from 'react';
+import styled from 'styled-components';
+import {
+    AnchorProps,
+    StyledAnchorAttributes,
+    StyledAnchorProps,
+} from './Anchor.types';
 
 const StyledAnchor = styled.a.attrs<StyledAnchorProps>(
     ({ innerAttributes }): StyledAnchorAttributes => ({

@@ -13,7 +13,7 @@ describe('getTypographyStyles', () => {
     test('should return styles for the "h1" variant', () => {
         const styles = getTypographyStyles(Variant.h1);
         expect(styles).toMatchObject({
-            fontSize: '2rem',
+            fontSize: '2.5rem',
             fontWeight: 'bold',
         });
     });
@@ -21,7 +21,7 @@ describe('getTypographyStyles', () => {
     test('should return styles for the "h2" variant', () => {
         const styles = getTypographyStyles(Variant.h2);
         expect(styles).toMatchObject({
-            fontSize: '1.5rem',
+            fontSize: '2rem',
             fontWeight: 'bold',
         });
     });
@@ -29,7 +29,7 @@ describe('getTypographyStyles', () => {
     test('should return styles for the "h3" variant', () => {
         const styles = getTypographyStyles(Variant.h3);
         expect(styles).toMatchObject({
-            fontSize: '1.17rem',
+            fontSize: '1.75rem',
             fontWeight: 'bold',
         });
     });
@@ -37,7 +37,7 @@ describe('getTypographyStyles', () => {
     test('should return styles for the "h4" variant', () => {
         const styles = getTypographyStyles(Variant.h4);
         expect(styles).toMatchObject({
-            fontSize: '1rem',
+            fontSize: '1.5rem',
             fontWeight: 'bold',
         });
     });
@@ -45,7 +45,7 @@ describe('getTypographyStyles', () => {
     test('should return styles for the "h5" variant', () => {
         const styles = getTypographyStyles(Variant.h5);
         expect(styles).toMatchObject({
-            fontSize: '0.83rem',
+            fontSize: '1.25rem',
             fontWeight: 'bold',
         });
     });
@@ -53,7 +53,7 @@ describe('getTypographyStyles', () => {
     test('should return styles for the "h6" variant', () => {
         const styles = getTypographyStyles(Variant.h6);
         expect(styles).toMatchObject({
-            fontSize: '0.67rem',
+            fontSize: '1.125rem',
             fontWeight: 'bold',
         });
     });

@@ -1,21 +1,6 @@
-import React, { FC, ReactNode } from 'react';
-import styled, {
-    CSSObject,
-    FlattenSimpleInterpolation,
-    StyledComponentPropsWithRef,
-} from 'styled-components';
-import { DataTestId } from '../../types';
-
-type StyledCardAttributes = StyledComponentPropsWithRef<'div'> & DataTestId;
-
-interface CardProps {
-    background?: string;
-    innerAttributes?: StyledCardAttributes;
-    innerStyles?: CSSObject | FlattenSimpleInterpolation;
-    children?: ReactNode;
-}
-
-type StyledCardProps = StyledComponentPropsWithRef<'div'> & CardProps;
+import React, { FC } from 'react';
+import styled from 'styled-components';
+import { CardProps, StyledCardAttributes, StyledCardProps } from './Card.types';
 
 const StyledCard = styled.div.attrs<StyledCardProps>(
     ({ innerAttributes }): StyledCardAttributes => ({

@@ -61,15 +61,6 @@ describe('Button', () => {
         });
     });
 
-    test('renders null child content', () => {
-        render(<Button innerAttributes={{ 'data-testid': 'button' }} />);
-
-        const buttonElement = screen.getByTestId('button');
-
-        expect(buttonElement).toBeInTheDocument();
-        expect(buttonElement).toBeEmptyDOMElement();
-    });
-
     test('renders with hover effect', () => {
         render(
             <Button
@@ -150,5 +141,14 @@ describe('Button', () => {
 
         expect(buttonElement).toBeInTheDocument();
         expect(buttonElement).toBeDisabled();
+    });
+
+    test('renders null child content', () => {
+        render(<Button innerAttributes={{ 'data-testid': 'button' }} />);
+
+        const buttonElement = screen.getByTestId('button');
+
+        expect(buttonElement).toBeInTheDocument();
+        expect(buttonElement).toBeEmptyDOMElement();
     });
 });

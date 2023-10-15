@@ -1,26 +1,13 @@
-import React, { FC, ReactNode } from 'react';
-import styled, {
-    CSSObject,
-    FlattenSimpleInterpolation,
-    StyledComponentPropsWithRef,
-} from 'styled-components';
-import { DataTestId } from '../../types';
-
-type StyledButtonAttributes = StyledComponentPropsWithRef<'button'> &
-    DataTestId;
-
-interface ButtonProps {
-    background?: string;
-    color?: string;
-    innerAttributes?: StyledButtonAttributes;
-    innerStyles?: CSSObject | FlattenSimpleInterpolation;
-    children?: ReactNode;
-}
-
-type StyledButtonProps = StyledComponentPropsWithRef<'button'> & ButtonProps;
+import React, { FC } from 'react';
+import styled from 'styled-components';
+import {
+    ButtonProps,
+    StyledButtonAttributes,
+    StyledButtonProps,
+} from './Button.types';
 
 const StyledButton = styled.button.attrs<StyledButtonProps>(
-    ({ innerAttributes }): StyledComponentPropsWithRef<'button'> => ({
+    ({ innerAttributes }): StyledButtonAttributes => ({
         ...innerAttributes,
     })
 )<StyledButtonProps>`

@@ -1,20 +1,7 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
-import {
-    CSSObject,
-    FlattenSimpleInterpolation,
-    StyledComponentPropsWithRef,
-} from 'styled-components';
 import Anchor from '.';
-
-type AnchorProps = {
-    background?: string;
-    children?: ReactNode;
-    className?: string;
-    color?: string;
-    innerAttributes?: StyledComponentPropsWithRef<'a'>;
-    innerStyles?: CSSObject | FlattenSimpleInterpolation;
-};
+import { AnchorProps } from './Anchor.types';
 
 export default {
     title: 'Components/Anchor',
@@ -53,5 +40,7 @@ WithOnClickHandler.args = {
 export const WithCustomClassName = Template.bind({});
 WithCustomClassName.args = {
     children: 'Click me',
-    className: 'custom-anchor',
+    innerAttributes: {
+        className: 'custom-anchor',
+    },
 };

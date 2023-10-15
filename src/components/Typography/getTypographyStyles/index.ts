@@ -11,27 +11,27 @@ const styles: TypographyStyles = {
         fontWeight: 'normal',
     },
     [Variant.h1]: {
-        fontSize: '2rem',
+        fontSize: '2.5rem',
         fontWeight: 'bold',
     },
     [Variant.h2]: {
-        fontSize: '1.5rem',
+        fontSize: '2rem',
         fontWeight: 'bold',
     },
     [Variant.h3]: {
-        fontSize: '1.17rem',
+        fontSize: '1.75rem',
         fontWeight: 'bold',
     },
     [Variant.h4]: {
-        fontSize: '1rem',
+        fontSize: '1.5rem',
         fontWeight: 'bold',
     },
     [Variant.h5]: {
-        fontSize: '0.83rem',
+        fontSize: '1.25rem',
         fontWeight: 'bold',
     },
     [Variant.h6]: {
-        fontSize: '0.67rem',
+        fontSize: '1.125rem',
         fontWeight: 'bold',
     },
 };

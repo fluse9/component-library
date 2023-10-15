@@ -1,19 +1,7 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
-import {
-    CSSObject,
-    FlattenSimpleInterpolation,
-    StyledComponentPropsWithRef,
-} from 'styled-components';
 import Card from '.';
-
-type CardProps = {
-    background?: string;
-    children?: ReactNode;
-    className?: string;
-    innerAttributes?: StyledComponentPropsWithRef<'div'>;
-    innerStyles?: CSSObject | FlattenSimpleInterpolation;
-};
+import { CardProps } from './Card.types';
 
 export default {
     title: 'Components/Card',

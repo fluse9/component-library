@@ -1,20 +1,7 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
-import {
-    CSSObject,
-    FlattenSimpleInterpolation,
-    StyledComponentPropsWithRef,
-} from 'styled-components';
 import Button from '.';
-
-type ButtonProps = {
-    background?: string;
-    children?: ReactNode;
-    className?: string;
-    color?: string;
-    innerAttributes?: StyledComponentPropsWithRef<'button'>;
-    innerStyles?: CSSObject | FlattenSimpleInterpolation;
-};
+import { ButtonProps } from './Button.types';
 
 export default {
     title: 'Components/Button',
@@ -27,9 +14,9 @@ export const Primary = Template.bind({});
 Primary.args = {
     background: '#4665AE',
     children: 'Primary Button',
-    className: 'rounded',
     color: '#FFFFFF',
     innerAttributes: {
+        className: 'rounded',
         onClick: () => console.log('test'),
     },
     innerStyles: {

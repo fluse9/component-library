@@ -1,38 +1,19 @@
-import React, { FC, ReactNode } from 'react';
-import styled, {
-    CSSObject,
-    FlattenSimpleInterpolation,
-    StyledComponentPropsWithRef,
-} from 'styled-components';
-import { DataTestId, Variant } from '../../types';
+import React, { FC } from 'react';
+import styled from 'styled-components';
+import { Variant } from '../../types';
 import getTypographyStyles from './getTypographyStyles';
-
-type StyledTypographyComponentPropsWithRef = StyledComponentPropsWithRef<'p'> &
-    StyledComponentPropsWithRef<'h1'> &
-    StyledComponentPropsWithRef<'h2'> &
-    StyledComponentPropsWithRef<'h3'> &
-    StyledComponentPropsWithRef<'h4'> &
-    StyledComponentPropsWithRef<'h5'> &
-    StyledComponentPropsWithRef<'h6'>;
-
-type StyledTypographyAttributes = StyledTypographyComponentPropsWithRef &
-    DataTestId;
-
-interface TypographyProps {
-    variant?: Variant;
-    color?: string;
-    innerAttributes?: StyledTypographyAttributes;
-    innerStyles?: CSSObject | FlattenSimpleInterpolation;
-    children?: ReactNode;
-}
-
-type StyledTypographyProps = StyledComponentPropsWithRef<'p'> & TypographyProps;
+import {
+    StyledTypographyAttributes,
+    StyledTypographyProps,
+    TypographyProps,
+} from './Typography.types';
 
 const StyledTypography = styled.p.attrs<StyledTypographyProps>(
-    ({ innerAttributes }): StyledComponentPropsWithRef<'p'> => ({
+    ({ innerAttributes }): StyledTypographyAttributes => ({
         ...innerAttributes,
     })
 )<StyledTypographyProps>`
+    font-style: normal;
     color: ${({ color }) => color};
     ${({ variant }) => getTypographyStyles(variant ?? Variant.p)}
     ${({ innerStyles }) => innerStyles};
@@ -41,8 +22,8 @@ const StyledTypography = styled.p.attrs<StyledTypographyProps>(
         font-style: italic;
     }
 
-    &:bold {
-        font-weight: 700;
+    &.bold {
+        font-weight: bold;
     }
 `;
 
@@ -50,6 +31,7 @@ const StyledTypography = styled.p.attrs<StyledTypographyProps>(
  * Define the Typography component, a functional component that renders a styled body of text.
  * It accepts various props for customization and uses a state variable for inner attributes.
  *
+ * @param variant - The variant for the typography.
  * @param color - Text color for the typography.
  * @param innerAttributes - Inner HTML attributes for the typography.
  * @param innerStyles - Inner CSS styles for the typography.
