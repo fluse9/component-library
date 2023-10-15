@@ -4,7 +4,7 @@ import {
     FlattenSimpleInterpolation,
     StyledComponentPropsWithRef,
 } from 'styled-components';
-import { DataTestId, Variant } from '../../types';
+import { DataTestId, Variant } from '../../typ';
 
 type StyledTypographyComponentPropsWithRef = StyledComponentPropsWithRef<'p'> &
     StyledComponentPropsWithRef<'h1'> &

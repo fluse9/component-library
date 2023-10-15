@@ -4,7 +4,7 @@ import {
     FlattenSimpleInterpolation,
     StyledComponentPropsWithRef,
 } from 'styled-components';
-import { DataTestId } from '../../types';
+import { DataTestId } from '../../typ';
 
 type StyledButtonAttributes = StyledComponentPropsWithRef<'button'> &
     DataTestId;

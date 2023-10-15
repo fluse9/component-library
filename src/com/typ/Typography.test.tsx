@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import 'jest-styled-components';
 import Typography from '.';
-import { Variant } from '../../types';
+import { Variant } from '../../typ';
 
 describe('Typography Component', () => {
     test('renders with default props and styles', () => {
