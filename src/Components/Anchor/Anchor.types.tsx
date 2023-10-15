@@ -4,7 +4,7 @@ import {
     FlattenSimpleInterpolation,
     StyledComponentPropsWithRef,
 } from 'styled-components';
-import { DataTestId } from '../../typ';
+import { DataTestId } from '../../Types';
 
 type StyledAnchorAttributes = StyledComponentPropsWithRef<'a'> & DataTestId;
 

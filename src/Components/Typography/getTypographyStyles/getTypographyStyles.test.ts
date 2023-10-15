@@ -1,5 +1,5 @@
 import getTypographyStyles from '.';
-import { Variant } from '../../../typ';
+import { Variant } from '../../../Types';
 
 describe('getTypographyStyles', () => {
     test('should return styles for the "p" variant', () => {

@@ -1,5 +1,5 @@
 import { CSSObject } from 'styled-components';
-import { Variant } from '../../../typ';
+import { Variant } from '../../../Types';
 
 interface TypographyStyles {
     [key: string]: CSSObject;

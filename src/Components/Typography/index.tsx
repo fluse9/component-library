@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { Variant } from '../../typ';
+import { Variant } from '../../Types';
 import getTypographyStyles from './getTypographyStyles';
 import {
     StyledTypographyAttributes,

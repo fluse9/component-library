@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import Typography from '.';
 import { TypographyProps } from './Typography.types';
-import { Variant } from '../../typ';
+import { Variant } from '../../Types';
 
 export default {
     title: 'Components/Typography',
