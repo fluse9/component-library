@@ -4,19 +4,21 @@ import styled, {
     FlattenSimpleInterpolation,
     StyledComponentPropsWithRef,
 } from 'styled-components';
+import { DataTestId } from '../../types';
+
+type StyledCardAttributes = StyledComponentPropsWithRef<'div'> & DataTestId;
 
 interface CardProps {
     background?: string;
-    children?: ReactNode;
-    className?: string;
-    innerAttributes?: StyledComponentPropsWithRef<'div'>;
+    innerAttributes?: StyledCardAttributes;
     innerStyles?: CSSObject | FlattenSimpleInterpolation;
+    children?: ReactNode;
 }
 
 type StyledCardProps = StyledComponentPropsWithRef<'div'> & CardProps;
 
 const StyledCard = styled.div.attrs<StyledCardProps>(
-    ({ innerAttributes }): StyledComponentPropsWithRef<'div'> => ({
+    ({ innerAttributes }): StyledCardAttributes => ({
         ...innerAttributes,
     })
 )<StyledCardProps>`
@@ -40,22 +42,22 @@ const StyledCard = styled.div.attrs<StyledCardProps>(
 /**
  * Define the Card component, a functional component that renders a styled card.
  * It accepts various props for customization and uses a state variable for inner attributes.
+ *
  * @param background - Background color for the card.
- * @param children - Child elements to be rendered inside the card.
- * @param className - CSS class name for additional styling.
  * @param innerAttributes - Inner HTML attributes for the card.
  * @param innerStyles - Inner CSS styles for the card.
+ * @param children - Child elements to be rendered inside the card.
+ *
+ * @returns {FC} - The rendered Card component.
  */
 const Card: FC<CardProps> = ({
     background = '#000000',
     children = null,
-    className = '',
     innerAttributes = {},
     innerStyles = {},
 }) => (
     <StyledCard
         background={background}
-        className={className}
         innerAttributes={innerAttributes}
         innerStyles={innerStyles}
     >

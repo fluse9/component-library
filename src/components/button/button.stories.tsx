@@ -17,7 +17,7 @@ type ButtonProps = {
 };
 
 export default {
-    title: 'components/button',
+    title: 'Components/Button',
     component: Button,
 } as Meta;
 

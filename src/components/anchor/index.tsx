@@ -4,18 +4,21 @@ import styled, {
     FlattenSimpleInterpolation,
     StyledComponentPropsWithRef,
 } from 'styled-components';
+import { DataTestId } from '../../types';
+
+type StyledAnchorAttributes = StyledComponentPropsWithRef<'a'> & DataTestId;
+
 interface AnchorProps {
-    children?: ReactNode;
-    className?: string;
     color?: string;
-    innerAttributes?: StyledComponentPropsWithRef<'a'>;
+    innerAttributes?: StyledAnchorAttributes;
     innerStyles?: CSSObject | FlattenSimpleInterpolation;
+    children?: ReactNode;
 }
 
 type StyledAnchorProps = StyledComponentPropsWithRef<'a'> & AnchorProps;
 
 const StyledAnchor = styled.a.attrs<StyledAnchorProps>(
-    ({ innerAttributes }): StyledComponentPropsWithRef<'a'> => ({
+    ({ innerAttributes }): StyledAnchorAttributes => ({
         ...innerAttributes,
     })
 )<StyledAnchorProps>`
@@ -26,22 +29,22 @@ const StyledAnchor = styled.a.attrs<StyledAnchorProps>(
 
 /**
  * Anchor component is a functional component that renders a styled anchor.
- * @param children - Child elements to be rendered inside the anchor.
- * @param className - CSS class name for additional styling.
+ *
  * @param color - Text color for the anchor.
  * @param innerAttributes - Inner HTML attributes for the anchor.
  * @param innerStyles - Inner CSS styles for the anchor.
+ * @param children - Child elements to be rendered inside the anchor.
+ *
+ * @returns {FC} - The rendered Anchor component.
  */
 const Anchor: FC<AnchorProps> = ({
-    children = null,
-    className = '',
     color = '#4665AE',
     innerAttributes = {},
     innerStyles = {},
+    children = null,
 }) => (
     <StyledAnchor
         color={color}
-        className={className}
         innerAttributes={innerAttributes}
         innerStyles={innerStyles}
     >

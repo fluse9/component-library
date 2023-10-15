@@ -17,7 +17,7 @@ type AnchorProps = {
 };
 
 export default {
-    title: 'components/anchor',
+    title: 'Components/Anchor',
     component: Anchor,
 } as Meta;
 

@@ -16,7 +16,7 @@ type CardProps = {
 };
 
 export default {
-    title: 'components/card',
+    title: 'Components/Card',
     component: Card,
 } as Meta;
 
@@ -26,8 +26,8 @@ export const Rounded = Template.bind({});
 Rounded.args = {
     background: '#FFFFFF',
     children: 'Rounded Card',
-    className: 'rounded',
     innerAttributes: {
+        className: 'rounded',
         onClick: () => console.log('test'),
     },
 };
@@ -36,8 +36,8 @@ export const Raised = Template.bind({});
 Raised.args = {
     background: '#FFFFFF',
     children: 'Raised Card',
-    className: 'raised',
     innerAttributes: {
+        className: 'raised',
         onClick: () => console.log('test'),
     },
 };
@@ -46,8 +46,8 @@ export const RaisedAndRounded = Template.bind({});
 RaisedAndRounded.args = {
     background: '#FFFFFF',
     children: 'Raised and Rounded Card',
-    className: 'raised rounded',
     innerAttributes: {
+        className: 'raised rounded',
         onClick: () => console.log('test'),
     },
 };

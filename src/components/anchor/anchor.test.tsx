@@ -5,7 +5,9 @@ import Anchor from '.';
 describe('Anchor', () => {
     test('renders with default props', () => {
         render(<Anchor>Hello</Anchor>);
+
         const anchorElement = screen.getByText('Hello');
+
         expect(anchorElement).toBeInTheDocument();
         expect(anchorElement.tagName).toBe('A');
         expect(anchorElement).toHaveStyle('color: #4665AE');
@@ -13,11 +15,16 @@ describe('Anchor', () => {
 
     test('renders with custom props', () => {
         render(
-            <Anchor color="#FF0000" className="custom-anchor">
+            <Anchor
+                color="#FF0000"
+                innerAttributes={{ className: 'custom-anchor' }}
+            >
                 Click Me
             </Anchor>
         );
+
         const anchorElement = screen.getByText('Click Me');
+
         expect(anchorElement).toBeInTheDocument();
         expect(anchorElement).toHaveClass('custom-anchor');
         expect(anchorElement).toHaveStyle({
@@ -36,12 +43,12 @@ describe('Anchor', () => {
                 Styled Anchor
             </Anchor>
         );
+
         const anchorElement = screen.getByText('Styled Anchor');
+
         expect(anchorElement).toBeInTheDocument();
         expect(anchorElement).toHaveStyle({
             fontWeight: 'bold',
-        });
-        expect(anchorElement).toHaveStyle({
             textDecoration: 'underline',
         });
     });
@@ -52,8 +59,19 @@ describe('Anchor', () => {
                 External Link
             </Anchor>
         );
+
         const anchorElement = screen.getByText('External Link');
+
         expect(anchorElement).toBeInTheDocument();
         expect(anchorElement).toHaveAttribute('href', 'https://example.com');
+    });
+
+    test('renders null child content', () => {
+        render(<Anchor innerAttributes={{ 'data-testid': 'anchor' }} />);
+
+        const anchorElement = screen.getByTestId('anchor');
+
+        expect(anchorElement).toBeInTheDocument();
+        expect(anchorElement).toBeEmptyDOMElement();
     });
 });

@@ -4,14 +4,17 @@ import styled, {
     FlattenSimpleInterpolation,
     StyledComponentPropsWithRef,
 } from 'styled-components';
+import { DataTestId } from '../../types';
+
+type StyledButtonAttributes = StyledComponentPropsWithRef<'button'> &
+    DataTestId;
 
 interface ButtonProps {
     background?: string;
-    children?: ReactNode;
-    className?: string;
     color?: string;
-    innerAttributes?: StyledComponentPropsWithRef<'button'>;
+    innerAttributes?: StyledButtonAttributes;
     innerStyles?: CSSObject | FlattenSimpleInterpolation;
+    children?: ReactNode;
 }
 
 type StyledButtonProps = StyledComponentPropsWithRef<'button'> & ButtonProps;
@@ -43,25 +46,25 @@ const StyledButton = styled.button.attrs<StyledButtonProps>(
 /**
  * Define the Button component, a functional component that renders a styled button.
  * It accepts various props for customization and uses a state variable for inner attributes.
+ *
  * @param background - Background color for the button.
- * @param children - Child elements to be rendered inside the button.
- * @param className - CSS class name for additional styling.
  * @param color - Text color for the button.
  * @param innerAttributes - Inner HTML attributes for the button.
  * @param innerStyles - Inner CSS styles for the button.
+ * @param children - Child elements to be rendered inside the button.
+ *
+ * @returns {FC} - The rendered Button functional component.
  */
 const Button: FC<ButtonProps> = ({
     background = '#000000',
-    children = null,
-    className = '',
     color = '#FFFFFF',
     innerAttributes = {},
     innerStyles = {},
+    children = null,
 }) => (
     <StyledButton
         background={background}
         color={color}
-        className={className}
         innerAttributes={innerAttributes}
         innerStyles={innerStyles}
     >
