@@ -6,7 +6,6 @@ yarn.lock
 
 # Build files
 /build/
-/dist/
 
 # Editor/IDE
 .vscode/

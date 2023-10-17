@@ -43,5 +43,5 @@ module.exports = {
             version: 'detect',
         },
     },
-    ignorePatterns: ['index.d.ts', 'rollup.config.js'],
+    ignorePatterns: ['index.d.ts', 'rollup.config.js', 'dist'],
 };
