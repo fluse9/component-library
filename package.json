@@ -2,14 +2,8 @@
     "name": "component-library",
     "version": "1.0.0",
     "description": "A component library for react and react native",
-    "main": "dist/bundle.js",
-    "types": "dist/index.d.ts",
-    "exports": {
-        ".": {
-            "import": "./dist/bundle.js",
-            "require": "./dist/bundle.js"
-        }
-    },
+    "main": "src/index.tsx",
+    "types": "src/index.d.ts",
     "scripts": {
         "build": "rollup -c",
         "build-storybook": "storybook build",
@@ -19,7 +13,6 @@
         "lint-prepush": "lint-prepush",
         "precise-commits": "precise-commits",
         "prepare": "husky install",
-        "preinstall": "npm run build",
         "prepublishOnly": "npm run build",
         "start": "rollup -c -w",
         "storybook": "storybook dev -p 6006",
