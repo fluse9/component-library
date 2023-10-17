@@ -19,7 +19,6 @@
         "lint-prepush": "lint-prepush",
         "precise-commits": "precise-commits",
         "prepare": "husky install",
-        "preinstall": "npm run build",
         "prepublishOnly": "npm run build",
         "start": "rollup -c -w",
         "storybook": "storybook dev -p 6006",
