@@ -5,6 +5,6 @@ declare enum Variant {
     'h3' = 3,
     'h4' = 4,
     'h5' = 5,
-    'h6' = 6
+    'h6' = 6,
 }
 export default Variant;
