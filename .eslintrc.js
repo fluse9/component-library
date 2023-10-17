@@ -42,4 +42,5 @@ module.exports = {
             version: 'detect',
         },
     },
+    ignorePatterns: ['index.d.ts'],
 };

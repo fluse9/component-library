@@ -2,7 +2,8 @@
     "name": "component-library",
     "version": "1.0.0",
     "description": "A component library for react and react native",
-    "main": "index.tsx",
+    "main": "src/index.tsx",
+    "types": "src/index.d.ts",
     "scripts": {
         "build": "rollup -c",
         "build-storybook": "storybook build",
