@@ -14,8 +14,10 @@
         "allowSyntheticDefaultImports": true,
         "moduleResolution": "node",
         "resolveJsonModule": true,
-        "jsx": "react"
+        "jsx": "react",
+        "declaration": true,
+        "outDir": "dist"
     },
-    "include": ["src", ".eslintrc.js"],
+    "include": ["src", ".eslintrc.js", "src/**/*.ts"],
     "exclude": ["node_modules"]
 }

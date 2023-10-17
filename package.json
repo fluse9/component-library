@@ -2,8 +2,14 @@
     "name": "component-library",
     "version": "1.0.0",
     "description": "A component library for react and react native",
-    "main": "src/index.tsx",
-    "types": "src/index.d.ts",
+    "main": "dist/bundle.js",
+    "types": "dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/bundle.js",
+            "require": "./dist/bundle.js"
+        }
+    },
     "scripts": {
         "build": "rollup -c",
         "build-storybook": "storybook build",
@@ -13,6 +19,7 @@
         "lint-prepush": "lint-prepush",
         "precise-commits": "precise-commits",
         "prepare": "husky install",
+        "preinstall": "npm run build",
         "prepublishOnly": "npm run build",
         "start": "rollup -c -w",
         "storybook": "storybook dev -p 6006",
@@ -44,6 +51,7 @@
         "@rollup/plugin-babel": "^6.0.3",
         "@rollup/plugin-commonjs": "^25.0.0",
         "@rollup/plugin-node-resolve": "^15.0.2",
+        "@rollup/plugin-typescript": "^11.1.5",
         "@storybook/addon-essentials": "^7.4.1",
         "@storybook/addon-interactions": "^7.4.1",
         "@storybook/addon-links": "^7.4.1",

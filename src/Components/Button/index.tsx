@@ -4,7 +4,7 @@ import {
     ButtonProps,
     StyledButtonAttributes,
     StyledButtonProps,
-} from './Button.types';
+} from './Button';
 
 const StyledButton = styled.button.attrs<StyledButtonProps>(
     ({ innerAttributes }): StyledButtonAttributes => ({

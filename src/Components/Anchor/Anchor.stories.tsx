@@ -1,7 +1,7 @@
 import React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
 import Anchor from '.';
-import { AnchorProps } from './Anchor.types';
+import { AnchorProps } from './Anchor';
 
 export default {
     title: 'Components/Anchor',

@@ -11,6 +11,7 @@ module.exports = {
         sourceType: 'module',
         project: './tsconfig.json',
     },
+
     env: {
         browser: true,
         node: true,
@@ -42,5 +43,5 @@ module.exports = {
             version: 'detect',
         },
     },
-    ignorePatterns: ['index.d.ts'],
+    ignorePatterns: ['index.d.ts', 'rollup.config.js'],
 };

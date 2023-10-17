@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import Typography from '.';
-import { TypographyProps } from './Typography.types';
+import { TypographyProps } from './Typography';
 import { Variant } from '../../Types';
 
 export default {

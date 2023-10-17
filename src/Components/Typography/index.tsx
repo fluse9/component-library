@@ -6,7 +6,7 @@ import {
     StyledTypographyAttributes,
     StyledTypographyProps,
     TypographyProps,
-} from './Typography.types';
+} from './Typography';
 
 const StyledTypography = styled.p.attrs<StyledTypographyProps>(
     ({ innerAttributes }): StyledTypographyAttributes => ({

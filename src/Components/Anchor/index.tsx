@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import {
-    AnchorProps,
-    StyledAnchorAttributes,
     StyledAnchorProps,
-} from './Anchor.types';
+    StyledAnchorAttributes,
+    AnchorProps,
+} from './Anchor';
 
 const StyledAnchor = styled.a.attrs<StyledAnchorProps>(
     ({ innerAttributes }): StyledAnchorAttributes => ({

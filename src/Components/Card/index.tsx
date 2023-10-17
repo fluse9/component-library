@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { CardProps, StyledCardAttributes, StyledCardProps } from './Card.types';
+import { CardProps, StyledCardAttributes, StyledCardProps } from './Card';
 
 const StyledCard = styled.div.attrs<StyledCardProps>(
     ({ innerAttributes }): StyledCardAttributes => ({
