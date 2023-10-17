@@ -10,7 +10,7 @@ type StyledAnchorAttributes = StyledComponentPropsWithRef<'a'> & DataTestId;
 
 interface AnchorProps {
     color?: string;
-    innerAttributes?: StyledAnchorAttributes;
+    innerAttributes?: StyledComponentPropsWithRef<'a'> & DataTestId;
     innerStyles?: CSSObject | FlattenSimpleInterpolation;
     children?: ReactNode;
 }
